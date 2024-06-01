@@ -55,6 +55,7 @@ void databaseOperations(SendPort sendPort) async {
 
       case Database.dispose:
         await hive.close();
+        timer?.cancel();
         replyPort.send(true);
         break;
     }
